@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-import { Container, Header, Main, Footer, Cards } from "@components";
+import { ExampleComponent } from "@components";
 
 const Home: React.FC = () => {
     //MOCK
@@ -29,14 +29,7 @@ const Home: React.FC = () => {
         };
         fetch();
     }, []);
-    return (
-        <Container>
-            <Header />
-            <Main />
-            <Cards />
-            <Footer />
-        </Container>
-    );
+    return <ExampleComponent />;
 };
 
 export default Home;
