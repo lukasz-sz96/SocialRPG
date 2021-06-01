@@ -4,10 +4,27 @@
 This project was generated with [superplate](https://github.com/pankod/superplate).
 
 ## Getting Started
+First things first:
+```bash
+npm install
+OR
+yarn
+```
+## Database Setup
+At this stage of development, there's no public database to use with it. You need to set up yourfwf own.
 
-superplate is a Next.js all-in-one project generator. Create your project with the tools you need without spending hours on setting them up.
+You'll need to install [MariaDB](https://mariadb.org/) server.
+Then, create `.env` file at the root of the project directory.
+Put this line inside it:
+```json
+DATABASE_URL="mysql://user:password@localhost:3306/db_name" //change accordingly to your database credentials and database name
+```
 
-Every plugin comes with an example to give you a brief knowledge about their usage. 
+After that, execute this at the root of the project directory:
+```bash
+npx prisma migrate dev --name init
+```
+Your database should be ready to use now.
 
 ## Available Scripts
 
