@@ -8,11 +8,19 @@ datasource db {
 }
 
 model player {
-  name     String @db.VarChar(100) @unique
+  name     String @unique @db.VarChar(100)
   password String @db.VarChar(100)
   hp       Float
   pos      String @default("{x: 0, y: 0}") @db.VarChar(100)
   id       Int    @id @default(autoincrement())
 
   @@map("players")
+}
+
+model location {
+  location_name String  @db.VarChar(100)
+  description   String? @db.VarChar(100)
+  pos           String  @unique @db.VarChar(100)
+
+  @@map("locations")
 }
