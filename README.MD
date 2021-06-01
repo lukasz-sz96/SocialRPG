@@ -11,7 +11,7 @@ OR
 yarn
 ```
 ## Database Setup
-At this stage of development, there's no public database to use with it. You need to set up yourfwf own.
+At this stage of development, there's no public database for this project. You'll need to set it up on your own for your local development.
 
 You'll need to install [MariaDB](https://mariadb.org/) server.
 Then, create `.env` file at the root of the project directory.
