@@ -4,16 +4,28 @@ import axios from "axios";
 import { Container, Header, Main, Footer, Cards } from "@components";
 
 const Home: React.FC = () => {
+    //MOCK
     useEffect(() => {
         const fetch = async () => {
-            const x = await axios.post("http://localhost:3000/api/user", {
-                data: {
-                    name: "TestPlayer",
-                    password: "TestPassword",
-                    hp: 50,
+            const newPlayer = await axios.post(
+                "http://localhost:3000/api/user/create",
+                {
+                    data: {
+                        name: "TestPlayer",
+                        password: "TestPassword",
+                        hp: 50,
+                    },
                 },
-            });
-            console.log(x);
+            );
+
+            const getPlayer = await axios.get(
+                "http://localhost:3000/api/user/get",
+                {
+                    params: { name: "TestPlayer" },
+                },
+            );
+            console.log(newPlayer);
+            console.log(getPlayer);
         };
         fetch();
     }, []);

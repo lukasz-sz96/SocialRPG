@@ -11,6 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         await prisma.$disconnect;
         return res.status(200).send(newPlayer);
     } else {
+        await prisma.$disconnect;
         res.status(422).send("req_method_not_supported");
     }
 };
