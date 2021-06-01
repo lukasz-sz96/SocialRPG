@@ -5,13 +5,17 @@ const prisma = new PrismaClient();
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === "POST") {
-        const newPlayer = await prisma.player.create({
-            ...req.body,
+        const doesAlreadyExist = await prisma.player.findUnique({
+            where: { name: req.body.data.name },
         });
-        await prisma.$disconnect;
-        return res.status(200).send(newPlayer);
+        if (!doesAlreadyExist) {
+            const newPlayer = await prisma.player.create({
+                ...req.body,
+            });
+            return res.status(201).send(newPlayer);
+        }
+        return res.status(200).send(false);
     } else {
-        await prisma.$disconnect;
         res.status(422).send("req_method_not_supported");
     }
 };
