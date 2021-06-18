@@ -16,10 +16,13 @@
         "amd": true
     },
     "extends": [
-        "eslint:recommended",
+        "next",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended"
-    ]
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-module-boundary-types": 0
+    }
 }
