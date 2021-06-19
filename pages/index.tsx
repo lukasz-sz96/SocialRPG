@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { useSession, signIn, signOut } from "next-auth/client";
+import { useSession, signOut } from "next-auth/client";
+import { useRouter } from "next/router";
 
 import axios from "axios";
 
 import { ExampleComponent } from "@components";
 
 const Home: React.FC = () => {
+    const router = useRouter();
     //MOCK
     // useEffect(() => {
     //     const fetch = async () => {
@@ -45,13 +47,10 @@ const Home: React.FC = () => {
                 <ExampleComponent />
             </>
         );
+    } else {
+        router.push("/login");
+        return null;
     }
-    return (
-        <>
-            Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
-        </>
-    );
 };
 
 export default Home;
